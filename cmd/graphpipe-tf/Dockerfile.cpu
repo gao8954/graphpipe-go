@@ -1,4 +1,4 @@
-FROM golang:1.10
+FROM ubuntu:16.04
 ENV TF_TYPE=cpu
 ENV TF_DIR=/usr/local
 ENV GOPATH=/go
