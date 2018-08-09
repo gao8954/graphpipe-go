@@ -12,20 +12,14 @@ ENV GOPATH=/go
 RUN mkdir -p /go/src
 
 RUN apt-get update && apt-get install --fix-missing -y --no-install-recommends \
-      linux-libc-dev
-
-RUN apt-get update && apt-get install --fix-missing -y --no-install-recommends \
+      linux-libc-dev \
       libavcodec-dev  \
       libavcodec-ffmpeg56 \
-      manpages-dev
-
-RUN apt-get update && apt-get install --fix-missing -y --no-install-recommends \
+      manpages-dev \
       libopenmpi-dev \
       git \
       curl \
-      golang-1.10-go
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
+      golang-1.10-go \
       build-essential \
       cmake \
       git \
@@ -40,9 +34,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       libprotobuf-dev \
       protobuf-compiler \
       cmake \
-      wget
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
+      wget \
       python-dev \
       python-pip
 

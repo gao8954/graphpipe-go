@@ -1,12 +1,14 @@
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
-RUN apt-get update
-RUN apt-get install -y software-properties-common
+RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:gophers/archive
 
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends git curl patch
-RUN apt-get install -y --no-install-recommends golang-1.10-go
-RUN apt-get install -y --no-install-recommends python-dev
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    curl \
+    patch \
+    golang-1.10-go \
+    python-dev \
+
 
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
 RUN curl https://bazel.build/bazel-release.pub.gpg |  apt-key add -

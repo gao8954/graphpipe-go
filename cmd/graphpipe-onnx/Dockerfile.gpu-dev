@@ -7,7 +7,7 @@ ENV TERM=linux
 
 ENV LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/lib
 ENV PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/go-1.10/bin:/go/bin
-ENV RUN_TYPE=gpu
+
 ENV GOPATH=/go
 
 RUN mkdir -p /go/src
@@ -15,15 +15,9 @@ RUN mkdir -p /go/src
 RUN apt-get install -y git curl golang-1.10-go
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	  libopenmpi-dev
-
-RUN apt-get -o Acquire::https::No-Cache=True -o Acquire::http::No-Cache=True update && apt-get install -y --no-install-recommends \
-	  python-pip
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-	  python-dev
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
+	  libopenmpi-dev \
+	  python-pip \
+	  python-dev \
 	  build-essential \
 	  cmake \
 	  libgoogle-glog-dev \
@@ -36,9 +30,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	  libprotobuf-dev \
 	  protobuf-compiler \
 	  cmake \
-	  wget
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
+	  wget \
 	  openmpi-bin \
 	  openmpi-doc
 
